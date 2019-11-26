@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+cd ${PROJECT_ROOT}/$OS2FORMS_PROJECT_ROOT
+REPOSITORIES=$(cat composer.json | grep '{"type":"path","url":"../os2forms"}')
+if [ -z "$REPOSITORIES" ]; then
+    sed -i 's/"repositories": \[/"repositories":\[{"type":"path","url":"..\/os2forms"},/g' composer.json
+fi
+REQUIRE=$(cat composer.json | grep '"os2forms/os2forms":"*"')
+if [ -z "$REQUIRE" ]; then
+    sed -i 's/"require": {/"require":{"os2forms\/os2forms":"\*",/g' composer.json
+fi
+composer update os2forms/os2forms
+

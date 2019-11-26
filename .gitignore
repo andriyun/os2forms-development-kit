@@ -1,0 +1,5 @@
+os2forms*
+.idea
+*.zip
+logs/*
+!logs/.gitkeep

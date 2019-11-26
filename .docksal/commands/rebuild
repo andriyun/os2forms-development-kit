@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+fin exec "sudo rm -rf $OS2FORMS_PROJECT_ROOT"
+fin exec "composer create-project drupal-composer/drupal-project:8.x-dev $OS2FORMS_PROJECT_ROOT --no-interaction"
